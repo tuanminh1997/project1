@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Author;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,10 +15,10 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('name')
-            
+
 
         ;
-        $builder->add('author', AuthorType::class, [
+        $builder->add('author', EntityType::class, [
             'class' => Author::class,
         ]);
     }

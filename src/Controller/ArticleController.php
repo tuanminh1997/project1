@@ -37,23 +37,18 @@ class ArticleController extends AbstractController
     public function new(Request $request): Response
     {
         $article = new Article();
-        $author=new Author();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-        $article->setAuthor($author);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
-            $entityManager->persist($author);
             $entityManager->flush();
-
             return $this->redirectToRoute('article_index');
         }
 
         return $this->render('article/new.html.twig', [
             'article' => $article,
-            'author'=>$author,
             'form' => $form->createView(),
         ]);
     }
