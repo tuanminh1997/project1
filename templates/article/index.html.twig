@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Author_id</th>
+                <th>Category_id</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.name }}</td>
                 <td>{{ article.getAuthor().id }}</td>
+                <td>{{ article.getCategories().id }}</td>
 
 
                 <td>
