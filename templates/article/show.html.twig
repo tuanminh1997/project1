@@ -19,10 +19,13 @@
                 <th>Author_Id</th>
                 <td>{{ article.getAuthor().id }}</td>
             </tr>
-         {#   <tr>
+            <tr>
                 <th>Category_Id</th>
-                <td>{{ article.getCategories().id }}</td>
-            </tr>#}
+                <td> {% for item in article.getCategories()  %}
+                        {{ item }}
+
+                    {% endfor %}</td>
+            </tr>
 
 
 

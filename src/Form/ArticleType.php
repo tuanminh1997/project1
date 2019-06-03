@@ -7,8 +7,10 @@ use App\Entity\Author;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\PropertyInfo\Tests\PhpDocExtractor\OmittedParamTagTypeDocBlock;
 
 class ArticleType extends AbstractType
 {
@@ -24,6 +26,7 @@ class ArticleType extends AbstractType
         ]);
         $builder->add('categories', EntityType::class, [
             'class' => Category::class,
+            'multiple'=>true,
         ]);
     }
 
